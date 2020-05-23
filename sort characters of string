@@ -1,0 +1,18 @@
+#include<bits/stdc++.h> 
+using namespace std; 
+
+void sortString(string &str) 
+{ 
+	sort(str.begin(), str.end());
+	cout<<"after sorting "; 
+	cout << str; 
+} 
+
+int main() 
+{ 
+	string s ;
+	cout<<"enter any string for sorting ";
+	cin>>s; 
+	sortString(s); 
+	return 0; 
+} 
