@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+int expo(int a,int b,int c)
+{
+    int k;
+    if(b==0) return 1;
+    else
+    {
+        if(b%2==1)
+        {
+            k=expo(a,b-1,c)%c;
+            return k*a;
+        }
+        else
+        {
+            k=expo(a,b/2,c)%c;
+            return k*k;
+        }
+    }
+}
+
+int main()
+{
+    int t;cin>>t;
+    while(t--)
+    {
+        int a,b,c;cin>>a>>b>>c;
+        cout<<expo(a,b,c)%c<<endl; 
+    }
+    return 0;
+}
