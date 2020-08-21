@@ -1,0 +1,13 @@
+void swap(int *P, int *Q)
+{
+*P = *P ^ *Q;
+*Q = *P ^ *Q;
+*P = *P ^ *Q;
+}
+
+void swap(int &A, int &B)
+{
+A = A ^ B;
+B = A ^ B;
+A = A ^ B;
+}
