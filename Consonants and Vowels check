@@ -1,0 +1,25 @@
+void checkString(string s)
+{
+    int v=0;
+    int c=0;
+    
+    for(int i=0;i<s.length();i++)
+    {
+        if(s[i]=='a'||s[i]=='e'||s[i]=='i'||s[i]=='o'||s[i]=='u'||s[i]=='A'||s[i]=='E'||s[i]=='I'||s[i]=='O'||s[i]=='U')
+            v++;
+        else if(s[i]==' ')
+            continue;
+        else
+            c++;
+        
+    }
+    
+    if(v>c)
+    cout<<"Yes";
+    if(c>v)
+    cout<<"No";
+    if(c==v)
+    cout<<"Same";
+    
+    cout<<endl;
+}
