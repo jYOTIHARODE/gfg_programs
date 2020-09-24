@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+#define ll long long 
+using namespace std;
+
+int main() 
+{
+    int t; cin>>t;
+    while(t--)
+    {
+        ll n; cin>>n;
+        
+        ll sqr=0,size=n;
+        while(size>=1)
+        {
+            sqr+=size*size;
+            size--;
+        }
+        
+        ll sqr_rec=(n*(n+1))/2 * (n*(n+1))/2;
+        
+        ll rec=sqr_rec-sqr;
+        cout<<rec<<endl;
+    }
+	
+	return 0;
+}
