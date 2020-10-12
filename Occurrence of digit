@@ -1,0 +1,33 @@
+#include <bits/stdc++.h> 
+using namespace std; 
+
+int getOccurence(int n, int d) 
+{ 
+	int result = 0; 
+	int itr = d; 
+	while (itr <= n) 
+	{ 
+		// When the last digit is equal to d 
+		if (itr%10 == d) 
+			result++; 
+
+		// When the first digit is equal to d then 
+		if (itr != 0 && itr/10 == d) 
+		{ 
+			result++; 
+			itr++;	// increment result as well as number  
+		} 
+		else if (itr/10 == d-1)// In case of reverse of number such as 12 and 21 
+			itr = itr + (10 - d); 
+		else
+			itr = itr+10; 
+	} 
+	return result; 
+} 
+
+int main() 
+{ 
+	int n,d; cin>>n>>d; 
+	cout << getOccurence(n, d); 
+	return 0; 
+} 
