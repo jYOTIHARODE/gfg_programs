@@ -1,0 +1,44 @@
+
+#include <bits/stdc++.h> 
+using namespace std; 
+
+#define M 4 
+#define N 5 
+
+void printCommonElements(int mat[M][N]) 
+{ 
+	unordered_map<int, int> mp; 
+
+	// initalize 1st row elements with value 1 
+	for (int i = 0; i < N; i++) 
+		mp[mat[0][i]] = 1; 
+
+	for (int i = 1; i < M; i++) 
+	{ 
+		for (int j = 0; j < N; j++) 
+		{ 
+			// If element is present in the map and 
+			// is not duplicated in current row. 
+			if (mp[mat[i][j]] == i) 
+			{ 
+				mp[mat[i][j]] = i + 1; 
+
+				// If this is last row 
+				if (i==M-1) 
+				cout << mat[i][j] << " "; 
+			} 
+		} 
+	} 
+} 
+ 
+int main() 
+{ 
+	int mat[M][N];
+	for(int i=0;i<M;i++)
+	    for(int j=0;j<N;j++)    
+	        cin>>mat[i][j];
+    cout<<"common element is........";
+	printCommonElements(mat); 
+
+	return 0; 
+} 
