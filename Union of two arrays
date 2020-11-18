@@ -1,0 +1,22 @@
+ #include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int test_case;cin>>test_case;
+	while(test_case--)
+	{
+	    int size1,size2;cin>>size1>>size2;
+	    vector<int>arr1(size1),arr2(size2);
+	    for(int i=0;i<size1;i++)    cin>>arr1[i];
+	    for(int j=0;j<size2;j++)    cin>>arr2[j];
+	    
+	    set<int>Ans;
+	    for(int i=0;i<size1;i++)
+            Ans.insert(arr1[i]);
+ 
+        for(int i=0;i<size2;i++)
+            Ans.insert(arr2[i]);
+	    cout<<Ans.size()<<endl;
+	}
+	return 0;
+}
