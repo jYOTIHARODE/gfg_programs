@@ -1,0 +1,21 @@
+
+class Solution
+{
+    public:
+    int getCount(struct Node* head)
+    {
+        int count=0;
+        if(!head)   return count;
+        else
+        {
+            while(head)
+            {
+                Node *temp = head;
+                count++;
+                head=head->next;
+            }
+        }
+        return count;
+    }
+};
+    
