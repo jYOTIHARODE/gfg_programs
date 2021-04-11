@@ -1,0 +1,9 @@
+class Solution{   
+public:
+    pair<int, int> get(int a, int b){
+        pair<int,int>ans;
+        swap(a,b);
+        ans=make_pair(a,b);
+        return ans;
+    }
+};
