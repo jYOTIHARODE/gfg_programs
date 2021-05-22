@@ -1,0 +1,16 @@
+vector<int> postOrder(Node* node) {
+    vector<int>ans;
+    if(node==nullptr)   return ans;
+    stack<Node*>S;
+    S.push(node);
+    while(!S.empty())
+    {
+        auto curr = S.top();
+        ans.push_back(curr->data);
+        S.pop();
+        if(curr->left)  S.push(curr->left);
+        if(curr->right) S.push(curr->right);
+    }
+    reverse(ans.begin(),ans.end());
+    return ans;
+}
