@@ -1,0 +1,6 @@
+
+int EvenOdd(string n1 , string n2)
+{
+    if((n1[n1.length()-1]*n2[n2.length()-1])%2==0)    return 1;
+    else    return 0;
+}
