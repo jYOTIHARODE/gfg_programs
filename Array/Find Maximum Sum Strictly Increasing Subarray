@@ -1,0 +1,49 @@
+// Input  : arr[] = {1, 2, 3, 2, 5, 1, 7}
+// Output : 8
+// Explanation : 
+//     {1, 2, 3} sum = 6, 
+//     {2, 5} sum = 7, 
+//     {1, 7} sum 8 
+// Maximum Sum = 8 
+
+// Input  : {1,2,2,4}
+// Output : 6
+// Explanation : Increasing subarray with maximum sum is 6 
+
+// Method 1 
+// A Simple Solution is to generate all possible subarrays, and for every subarray 
+// check if subarray is strictly increasing or not. If subarray is strictly increasing, 
+// then we calculate sum & update max_sum. 
+// Time complexity O(n2).
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int maxSum(int arr[] , int n)
+{
+    int max_sum = arr[0];
+    int curr_sum = arr[0];
+
+    for(int i=1 ; i<n ; i++)
+    {
+        if(arr[i-1]<arr[i])
+        {
+            curr_sum+=arr[i];
+            max_sum = max(max_sum,curr_sum);
+        }
+        else
+        {
+            max_sum = max(max_sum,curr_sum);
+            curr_sum = arr[i];
+        }
+    }
+    return max(max_sum,curr_sum);
+}
+
+int main()
+{
+    int arr[] = {1,2,3,1,5,6,2,3};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    cout<<"maximum sum : "<<maxSum(arr,n)<<endl;
+    return 0;
+}
