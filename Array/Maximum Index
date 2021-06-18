@@ -1,0 +1,21 @@
+int maxIndexDiff(int arr[], int n) 
+    { 
+       int low = 0;
+       int high = n-1;
+       int max = 0;
+       int ans = 0;
+       
+       while(low<=high)
+       {
+           if(arr[low]<=arr[high])
+           {
+                ans = high-low;
+                if(ans>max) max = ans;
+                low++;
+                high = n-1;
+           }
+           else
+            high--;
+       }
+       return max;
+    }
