@@ -1,11 +1,6 @@
-// Simple C++ program to print 
-// next greater elements in a 
-// given array 
 #include<iostream> 
 using namespace std; 
 
-/* prints element and NGE pair 
-for all elements of arr[] of size n */
 void printNGE(int arr[], int n) 
 { 
 	int next, i, j; 
@@ -25,7 +20,6 @@ void printNGE(int arr[], int n)
 	} 
 } 
 
-// Driver Code 
 int main() 
 { 
 	int arr[] = {11, 13, 21, 3}; 
@@ -33,6 +27,4 @@ int main()
 	printNGE(arr, n); 
 	return 0; 
 } 
-
-// This code is contributed 
-// by Akanksha Rai(Abby_akku) 
+ 
