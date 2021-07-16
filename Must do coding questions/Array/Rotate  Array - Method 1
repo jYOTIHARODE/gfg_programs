@@ -1,0 +1,3 @@
+void rotateArr(int arr[], int d, int n){
+        rotate(arr,arr+d,arr+n);
+    }
