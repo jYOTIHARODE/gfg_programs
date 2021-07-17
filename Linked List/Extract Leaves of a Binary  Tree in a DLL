@@ -1,0 +1,92 @@
+//O(n)
+// Assume that the node structure of DLL and Binary Tree is same, 
+// only the meaning of left and right pointers are different. 
+// In DLL, left means previous pointer and right means next pointer.
+
+// we add leaves at the beginning of the current linked list and 
+// update the head of the list using the pointer to head pointer. 
+// Since we insert at the beginning, we need to process leaves in reverse order. 
+// For reverse order, we first traverse the right subtree, then the left subtree. 
+// We use return values to update left or right pointers in parent nodes.  
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class Node{
+    public:
+    int data;
+    Node*left,*right;
+};
+
+Node* ExtractLeaf(Node* root,Node**head_ref)
+{
+    if(!root)   return nullptr;
+    if(!root->left and !root->right)
+    {
+        root->right = *head_ref;
+        if(*head_ref!=nullptr)
+            *head_ref = root;
+        return nullptr;
+    }
+    root->right = ExtractLeaf(root->right,head_ref);
+    root->left = ExtractLeaf(root->left,head_ref);
+    return root;
+}
+
+Node* newNode(int data)
+{
+    Node* node = new Node();
+    node->data = data;
+    node->left = nullptr;
+    node->right = nullptr;
+    return node;
+}
+
+void print(Node * root)
+{
+    if(root)
+    {
+        print(root->left);
+        cout<<root->data<<" ";
+        print(root->right);
+    }   
+}
+
+void printDLL(Node* head)
+{
+    while(head)
+    {
+        cout<<head->data<<" ";
+        head = head->right;
+    }
+}
+
+int main()
+{
+    Node *head = nullptr;
+    Node *root = newNode(1);
+    root->left = newNode(2);
+    root->right = newNode(3);
+    root->left->left = newNode(4);
+    root->left->right = newNode(5);
+    root->right->right = newNode(6);
+    root->left->left->left = newNode(7);
+    root->left->left->right = newNode(8);
+    root->right->right->left = newNode(9);
+    root->right->right->right = newNode(10);
+
+    cout<<"Inorder Traversal of given Tree is ";
+    print(root);
+    cout<<endl;
+
+    root = ExtractLeaf(root,&head);
+
+    cout<<"Extracter Double Linked list is ";
+    printDLL(root);
+    cout<<endl;
+
+    cout<<"Inorder Traversal of modified tree is ";
+    print(root);
+    cout<<endl;
+    return 0;
+}
