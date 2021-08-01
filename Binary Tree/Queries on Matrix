@@ -1,0 +1,15 @@
+vector<vector<int>> solveQueries(int n, vector<vector<int>>q)
+{
+    vector<vector<int>>ans(n,vector<int>(n,0));
+    for(int i=0 ; i<q.size() ; i++)
+    {
+        int tx = q[i][0];
+        int ty = q[i][1];
+        int bx = q[i][2];
+        int by = q[i][3];
+        for(int x = tx ; x <= bx ;x++)
+            for(int y = ty; y <= by ; y ++)
+                ans[x][y] += 1;
+    }
+    return ans;
+  }
