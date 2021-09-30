@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int util(TreeNode* root , bool &ans){
+        if(!root)   return 0;
+        int l_height = util(root->left,ans);
+        int r_height = util(root->right,ans);
+        if(abs(l_height-r_height)>=2){
+            ans = false;
+            return 0;
+        }
+        return max(l_height,r_height)+1;
+    }
+    
+    bool isBalanced(TreeNode* root) {
+        bool ans = true;
+        if(!root)   return ans;
+        util(root,ans);
+        return ans;
+    }
+};
