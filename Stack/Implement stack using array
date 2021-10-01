@@ -1,0 +1,15 @@
+void MyStack :: push(int x)
+{
+    if(top!=1000){
+        arr[++top] = x;
+    }
+}
+int MyStack :: pop()
+{
+    if(top>=0){
+        return arr[top--];
+    }       
+    else{
+        return -1;
+    }
+}
