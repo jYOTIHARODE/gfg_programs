@@ -1,0 +1,23 @@
+class Solution{
+    void solve(int x, int y, string s, vector<vector<int>> &m, vector<string> &res) {
+        int n = m.size();
+        if(x<0 || x>=n || y<0 || y>=n || m[x][y] == 0) return;
+        if(x == n-1 && y == n-1) {
+            res.push_back(s);
+            return;
+        }
+        int dx[] = {1, 0, 0, -1}, dy[] = {0, -1, 1, 0};
+        char ch[] = {'D', 'L', 'R', 'U'};
+        m[x][y] = 0;
+        for(int k=0; k<4; k++)
+            solve(x+dx[k], y+dy[k], s+ch[k], m, res);
+        m[x][y] = 1;
+    }
+public:
+    vector<string> findPath(vector<vector<int>> &m, int n) {
+        vector<string> res;
+        solve(0, 0, "", m, res);
+        return res;
+    }
+};
+    
